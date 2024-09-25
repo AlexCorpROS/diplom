@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Оставить отзыв{% endblock %}
+
+{% block content %}
+<form method="post" class="form-control d-flex flex-column gap-2">    
+    <div>
+        <label for="exampleFormControlTextarea1" class="form-label">Напишите ваш отзыв о мероприятии</label>
+        <textarea name="text" class="form-control"  rows="5"></textarea>
+    </div>
+    <input value="Добавить" type="submit" class="btn btn-success">
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Добавление мероприятия{% endblock %}
+
+{% block content %}
+<form method="post" class="form-control d-flex flex-column gap-2">
+    <!-- <input name="organizer" type="text" placeholder="Организатор" class="form-control"> -->
+    <input name="subject" type="text" placeholder="Описание мероприятия" class="form-control">
+    <!-- <input name="participants" type="text" placeholder="Кто участвует" class="form-control">     -->
+
+    {{ form.participants }}
+
+    <input value="Добавить" type="submit" class="btn btn-success">
+</form>
+{% endblock %}

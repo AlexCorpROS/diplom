@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Рейтинг{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/blocks/table.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/fontawesome.min.css') }}">
+    
+{% endblock %}
+
+{% block content %}
+<table class="table custom-table">    
+    <thead>
+        <tr >
+            <th scope="col">Отзыв</th>            
+            <th scope="col">Оценка</th>            
+        </tr>            
+    </thead>
+
+    <tbody>
+        {% for i, j in feedback_raiting.items() %}
+        <tr scope="row">
+            <td> {{i}} </td>
+            <td> {{j}} </td>                             
+        </tr>
+        {% endfor %}
+        
+        <td> 
+            {% if current_user.is_authenticated and current_user.status == 'root' %}
+            <a href="{{ url_for('comment.add_rating', author_id = id )}}" class="btn btn-sm btn-secondary"><span class="fa fa-edit"> Опубликовать текущий рейтинг</span></a>               
+            {% endif %}
+        </td>
+        <td>Средний рейтинг {{go}}</td>       
+    </tbody>
+</table>
+{% endblock %}
